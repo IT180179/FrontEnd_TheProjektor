@@ -50,7 +50,7 @@ export class ProjectsOverviewComponent implements OnInit {
 
     this.recht = this.data.recht;
     this.isLoggedIn = this.data.isloggedIn;
-    
+
     this.projects = this.service.getProjects().subscribe({
       next: value => {
         //  console.log(value)
@@ -62,7 +62,6 @@ export class ProjectsOverviewComponent implements OnInit {
         //  console.log("Es können keine Projekte abgefragt werden")
       }
     });
-
   }
 
   doSearch() {
