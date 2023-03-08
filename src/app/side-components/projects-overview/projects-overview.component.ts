@@ -5,7 +5,6 @@ import {HttpService} from "../../services/http.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
-import {Projekte} from "../../model/Projekte";
 import {LoginComponent} from "../../login/login.component";
 
 export interface DialogData {
