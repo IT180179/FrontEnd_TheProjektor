@@ -10,8 +10,8 @@ export class AuthGuardService {
               private router: Router) { }
 
   canActivate(): boolean {
-    console.log('canActiate')
-    console.log('isloggedin(): ' + this.authService.isLoggedIn())
+    // console.log('canActiate')
+    // console.log('isloggedin(): ' + this.authService.isLoggedIn())
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['login']);
       return false;

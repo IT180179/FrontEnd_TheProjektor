@@ -6,6 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
 import {Projekte} from "../../model/Projekte";
+import {LoginComponent} from "../../login/login.component";
 
 export interface DialogData {
   id: string;
@@ -21,11 +22,13 @@ export class ProjectsOverviewComponent implements OnInit {
   text = '';
   id: number | undefined;
   projects: any;
-  foundprojects:any
+  foundprojects = [];
   recht:any
   isLoggedIn: any
 
-  constructor(public dataService: DataService,public _router: Router,public service: HttpService, public dialog: MatDialog, private snackBar: MatSnackBar, public data: DataService) {
+  constructor(public loginComponent: LoginComponent, public dataService: DataService,
+              public _router: Router,public service: HttpService, public dialog: MatDialog,
+              private snackBar: MatSnackBar, public data: DataService) {
   }
 
   openDialog(projekt_id: number): void {
@@ -36,7 +39,7 @@ export class ProjectsOverviewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.id = result;
     });
   }
@@ -47,19 +50,19 @@ export class ProjectsOverviewComponent implements OnInit {
 
     this.recht = this.data.recht;
     this.isLoggedIn = this.data.isloggedIn;
-
-    if(this.foundprojects == null){
+    
     this.projects = this.service.getProjects().subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.projects = value;
-        this.foundprojects= value;
-        console.log(this.foundprojects)
+        // @ts-ignore
+        this.foundprojects = value
+          console.log(this.foundprojects)
       }, error: err => {
-        console.log("Es können keine Projekte abgefragt werden")
+        //  console.log("Es können keine Projekte abgefragt werden")
       }
     });
-    }
+
   }
 
   doSearch() {
@@ -69,6 +72,7 @@ export class ProjectsOverviewComponent implements OnInit {
    this.service.search(this.text).subscribe( {
       next: value => {
         console.log("Wurde überschrieben!")
+        // @ts-ignore
         this.foundprojects = value;
         console.log(this.foundprojects)
       },error: err => {

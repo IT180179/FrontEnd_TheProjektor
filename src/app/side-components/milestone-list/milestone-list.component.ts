@@ -39,7 +39,7 @@ export class MilestoneListComponent implements OnInit {
     // GET - Meilensteine Per Projekt
     this.milestones = this.service.getMilestonesOfProjects(this.projekt_id).subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.milestones = value
       }, error: err => {
         this.snackBar.open(`Daten konnten nicht geladen werden ${err.message}`, undefined, {
@@ -52,7 +52,7 @@ export class MilestoneListComponent implements OnInit {
     // GET - Projekt per ID
     this.projects = this.service.getProjectById(this.projekt_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projects = value
       }, error: err => {
         this.snackBar.open(`Daten konnten nicht geladen werden ${err.message}`, undefined, {
@@ -84,9 +84,9 @@ export class MilestoneListComponent implements OnInit {
 
   // SET MilestoneID
   setNewMilestone(meilenstein_id: any) {
-    console.log(meilenstein_id)
+    //  console.log(meilenstein_id)
     this.dataService.milestone_id = meilenstein_id
-    console.log(this.dataService.milestone_id)
+    //  console.log(this.dataService.milestone_id)
   }
 
   // OPEN DELETE DIALOG
@@ -95,7 +95,7 @@ export class MilestoneListComponent implements OnInit {
       data: {id: meilenstein_id}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      //  console.log('The dialog was closed');
     });
   }
 

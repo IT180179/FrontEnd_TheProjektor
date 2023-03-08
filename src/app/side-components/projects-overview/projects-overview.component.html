@@ -12,6 +12,7 @@
   <script src="https://unpkg.com/bulma-calendar@6.0.7/dist/js/bulma-calendar.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
+
 <div id="main">
   <h1 class="subtitle is-2" style="color: #005281; margin-bottom: 2%;">Laufende Projekte</h1>
   <div class="box" id="form" style="background-color: #e5f6ff; border-color: #005281; border-radius: 20px;">
@@ -22,11 +23,9 @@
         <input style="width: 30%" matInput [(ngModel)]="text" (input)="doSearch()">
         <button style="float: right" mat-button (click)="doSearch()">Suchen</button>
       </mat-form-field>
-
-
   </div>
 
-    <table *ngIf="foundprojects.length == undefined " class="table is-fullwidth" id="project_table">
+   <!-- <table *ngIf="foundprojects.length == 1 " class="table is-fullwidth" id="project_table">
       <thead>
       <tr>
         <th>Projekt</th>
@@ -65,9 +64,9 @@
         <td>{{p.end_datum}}</td>
       </tr>
       </tbody>
-    </table>
+    </table> -->
 
-   <!-- <table class="table is-fullwidth" *ngIf="foundprojects" >
+   <table class="table is-fullwidth" *ngIf="foundprojects" >
       <thead>
       <tr>
         <th>Projekt</th>
@@ -86,7 +85,7 @@
         <td>{{p.end_datum}}</td>
       </tr>
       </tbody>
-    </table>-->
+    </table>
   </div>
 </div>
 </html>

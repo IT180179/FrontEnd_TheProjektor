@@ -52,7 +52,7 @@ export class ChangeMilestoneFormComponent implements OnInit {
     //GET Daten vom Meilenstein
     this.milestone = this.service.getMilestonesByID(this.meilenstein_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.milestone = value
       }, error: err => {}
     });
@@ -60,7 +60,7 @@ export class ChangeMilestoneFormComponent implements OnInit {
     //GET Meilensteine
     this.milestones = this.service.getMilestones().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.milestones = value
       }, error: err => {}
     });
@@ -82,7 +82,7 @@ export class ChangeMilestoneFormComponent implements OnInit {
     this.http.post('http://localhost:8080/meilenstein_histories/add', this.newhistorie)
       .subscribe({
         next: value => {
-          console.log(value)
+          // console.log(value)
         }, error: err => {
           this.snackBar.open(`Daten konnten nicht hinzugefügt werden ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
         }
@@ -103,7 +103,7 @@ export class ChangeMilestoneFormComponent implements OnInit {
     this.http.put('http://localhost:8080/meilensteine/update', this.newdata)
       .subscribe({
         next: value => {
-          console.log(value)
+          // console.log(value)
           this.snackBar.open(`Daten konnten nicht geändert werden`, undefined, {
             duration: 3000,
             panelClass: 'snackbar-light'

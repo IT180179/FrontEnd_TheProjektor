@@ -45,28 +45,28 @@ export class ResourceFormComponent implements OnInit {
 
     this.employees = this.service.getEmployees().subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.employees = value
       }, error: err => {}
     });
 
     this.roles = this.service.getRoles().subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.roles = value
       }, error: err => { }
     });
 
     this.projects = this.service.getProjectsByPerson(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projects = value
       }, error: err => {}
     });
 
     this.einsaetze = this.service.getEinsaetze().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.einsaetze = value
       }, error: err => {}
     });
@@ -82,8 +82,8 @@ export class ResourceFormComponent implements OnInit {
     this.http.post<any>('http://localhost:8080/arbeitszeiten/add', this.newdata)
       .subscribe({
         next: value => {
-          console.log("GEPOSTET")
-          console.log(value)
+          //  console.log("GEPOSTET")
+          //  console.log(value)
 
           this.snackBar.open(`Daten wurden gespeichert!`, undefined, {
             duration: 3000,
@@ -101,7 +101,7 @@ export class ResourceFormComponent implements OnInit {
   onSelectedProject(id: number) {
     this.employeesOfProject = this.service.getPersonsOfProjectsNumber(id).subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.employeesOfProject = value
       }, error: err => {}
     });

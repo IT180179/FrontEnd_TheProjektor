@@ -20,10 +20,8 @@ export class InfoPpkComponent implements OnInit {
       this.ppk = this.service.getPPK().subscribe({
         next: value => {
           const firstPPK = Object.values(value)[0];
-          console.log(firstPPK)
-
-          console.log(value[0].ppk_id)
-
+          //  console.log(firstPPK)
+          //  console.log(value[0].ppk_id)
           this.ppk = value
           this.dataservice.ppk_id(value[0].ppk_id)
           console.log('PPK value: ' + value)

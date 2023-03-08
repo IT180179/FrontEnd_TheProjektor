@@ -22,6 +22,7 @@ export class DataService {
   private _milestone_id: any = 1;
   private _user_id: any = 1;
   private _recht: any = 1;
+  public role: any;
 
   get projekt_id(): any {
     return this._projekt_id;

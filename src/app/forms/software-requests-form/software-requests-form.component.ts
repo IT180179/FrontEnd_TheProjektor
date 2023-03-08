@@ -33,7 +33,7 @@ export class SoftwareRequestsFormComponent implements OnInit {
     }
     this.phasen = this.service.getPhasen().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.phasen = value
       }, error: err => {}
     });
@@ -43,11 +43,11 @@ export class SoftwareRequestsFormComponent implements OnInit {
     for (let i = 0; i <= 7; i++) {
       const checkbox = document.getElementById("checkbox" + i) as HTMLInputElement | null;
       if (checkbox?.checked) {
-        console.log('Checkbox is checked');
+        // console.log('Checkbox is checked');
         this.auswahl.push(1);
-        console.log(1)
+        // console.log(1)
       } else {
-        console.log('Checkbox is NOT checked');
+        // console.log('Checkbox is NOT checked');
         this.auswahl.push(0);
       }
       console.log(checkbox?.checked);
@@ -69,21 +69,6 @@ export class SoftwareRequestsFormComponent implements OnInit {
     console.log(this.auswahl[1] + '/' + this.auswahl[3] + '/' + this.auswahl[3] + '/' +
       this.auswahl[4] + '/' + this.auswahl[5] + '/' + this.auswahl[6] + '/' + this.auswahl[7])
 
-    /*this.http.post('http://localhost:8080/softwareanforderungen/add/' + this.auswahl[1] + '/' + this.auswahl[3] + '/' + this.auswahl[3] + '/' + this.auswahl[4] + '/' + this.auswahl[5] + '/' + this.auswahl[6] + '/' + this.auswahl[7], this.newdata)
-      .subscribe({
-        next: value => {
-          console.log(value)
-          this.snackBar.open(`Daten wurden gespeichert!`, undefined, {
-            duration: 3000,
-            panelClass: 'snackbar-dark'
-          });
-        }, error: err => {
-          this.snackBar.open(`Daten konnten nicht geladen werden ${err.message}`, undefined, {
-            duration: 3000,
-            panelClass: 'snackbar-dark'
-          });
-        }
-      });*/
     this.openSummary()
     this.closeDialog()
   }
@@ -93,7 +78,7 @@ export class SoftwareRequestsFormComponent implements OnInit {
       height: '250px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
   closeDialog() {

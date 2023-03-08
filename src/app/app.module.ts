@@ -144,7 +144,7 @@ import { PageNotFoundComponent } from './side-components/page-not-found/page-not
     CommonModule
   ],
   providers: [
-    PPKPresentationFormComponent,
+    PPKPresentationFormComponent, LoginComponent,
     {provide: MAT_DATE_LOCALE, useValue: 'de-AT'},
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,

@@ -79,7 +79,7 @@ export class FreieFolieFormComponent implements OnInit {
       height: '250px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 

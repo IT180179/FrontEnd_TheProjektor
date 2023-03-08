@@ -45,7 +45,7 @@ export class CreateProjectFormComponent implements OnInit {
     }
     this.categorie = this.service.getCategorie().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.categorie = value
       }, error: err => {}});
   }
@@ -66,7 +66,7 @@ export class CreateProjectFormComponent implements OnInit {
       this.http.post('http://localhost:8080/projekte/add', this.newdata)
         .subscribe({
           next: value => {
-            console.log(value)
+            // console.log(value)
           }, error: err => {
             this.snackBar.open(`Projekt hinzufügen ist fehlgeschlagen: ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
           }
@@ -81,7 +81,7 @@ export class CreateProjectFormComponent implements OnInit {
       data: this.newdata?.titel,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this._router.navigate(['/project_overview']);
     });
   }

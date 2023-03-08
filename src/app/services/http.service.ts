@@ -19,12 +19,27 @@ export class HttpService {
 
   getResource(id: number): Observable<any> {
 
-    const url: string = "http://localhost:8080/arbeitszeiten/getArbeitszeitenPerPerson/1"+ id;
+    const url: string = "http://localhost:8080/arbeitszeiten/getArbeitszeitenPerPerson/"+ id;
 
     return this.http.get<any>(url);
 
   }
 
+  getPPKPowerpoint(): Observable<any> {
+
+    const url: string = "http://localhost:8080/ppt/ppk";
+
+    return this.http.get<any>(url);
+
+  }
+
+  getDetailPowerpoint(): Observable<any> {
+
+    const url: string = "http://localhost:8080/ppt/detail";
+
+    return this.http.get<any>(url);
+
+  }
   getRoles(): Observable<any> {
 
     const url = "http://localhost:8080/rollen/all";
@@ -245,7 +260,7 @@ export class HttpService {
 
     const url: string = "http://localhost:8080/einsaetze/countProjects/" + id;
 
-    console.log(this.http.get<Person>(url));
+    // console.log(this.http.get<Person>(url));
     return this.http.get<Person>(url);
 
   }
@@ -254,7 +269,7 @@ export class HttpService {
 
     const url: string = "http://localhost:8080/einsaetze/countProjektmanager/" + id;
 
-    console.log(this.http.get<Person>(url));
+    // console.log(this.http.get<Person>(url));
     return this.http.get<Person>(url);
 
   }
@@ -263,7 +278,7 @@ export class HttpService {
 
     const url = "http://localhost:8080/personen/getPersonAndArbeitsaufwand";
 
-    console.log(this.http.get<any>(url));
+    // console.log(this.http.get<any>(url));
     return this.http.get(url);
 
   }
@@ -271,7 +286,7 @@ export class HttpService {
 
     const url = "http://localhost:8080/personen/getPersonAndArbeitsaufwandPerProjekt/"+ id;
 
-    console.log(this.http.get<any>(url));
+    // console.log(this.http.get<any>(url));
     return this.http.get(url);
 
   }
@@ -280,7 +295,7 @@ export class HttpService {
 
     const url = "http://localhost:8080/personen/login/" + username + "/" + password;
 
-    console.log(this.http.get<any>(url));
+    // console.log(this.http.get<any>(url));
     return this.http.get(url);
 
   }

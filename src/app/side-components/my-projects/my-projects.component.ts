@@ -28,7 +28,7 @@ export class MyProjectsComponent implements OnInit {
 
     this.projects = this.service.getProjectsByPerson(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.projects = value
       }, error: err => {
         this.snackBar.open(`Daten konnten nicht geladen werden ${err.message}`, undefined, {
@@ -47,7 +47,7 @@ export class MyProjectsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      //  console.log('The dialog was closed');
       this.projekt_id = result;
     });
   }

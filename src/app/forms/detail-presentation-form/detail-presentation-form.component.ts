@@ -34,19 +34,19 @@ export class DetailPresentationFormComponent implements OnInit {
     }
     this.employees = this.service.getEmployees().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.employees = value
       }, error: err => {}
     });
     this.roles = this.service.getRoles().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.roles = value
       }, error: err => {}
     });
     this.projects = this.service.getProjects().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projects = value
       }, error: err => {}
     });
@@ -61,8 +61,19 @@ export class DetailPresentationFormComponent implements OnInit {
       height: '250px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this._router.navigate(['/project_overview']);
     });
+  }
+
+  getDetailPresentation(){
+    console.log("Detail-Präsentation wird generiert")
+    //this.http.getPPKPowerpoint().subscribe(
+    //       {
+    //         next: value => {
+    //           //  console.log(value)
+    //           this.ppkInfos = value
+    //         }, error: err => {}
+    //         });
   }
 }

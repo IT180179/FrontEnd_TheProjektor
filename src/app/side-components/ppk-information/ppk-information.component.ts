@@ -23,7 +23,7 @@ export class PpkInformationComponent implements OnInit {
     }
     this.nextPpk = this.service.getNextPPK().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.nextPpk = value
       }, error: err => { }
     })
@@ -31,7 +31,7 @@ export class PpkInformationComponent implements OnInit {
     this.ppkInfos = this.http.get('http://localhost:8080/ppk/getNextPPKWithProjektAndGaeste').subscribe(
       {
         next: value => {
-          console.log(value)
+          //  console.log(value)
           this.ppkInfos = value
         }, error: err => {}}
     )

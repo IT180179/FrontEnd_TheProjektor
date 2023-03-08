@@ -46,14 +46,14 @@ export class ProjectDetailComponent implements OnInit {
 
     this.project = this.service.getProjectById(this.data).subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.project = value
       }, error: err => {
       }
     });
     this.employees = this.service.getEmployeesAndRessourcesPerProjekt(this.data).subscribe({
       next: value => {
-        console.log(value)
+        //   console.log(value)
         this.employees = value
       }, error: err => {
       }

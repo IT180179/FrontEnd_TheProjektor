@@ -69,23 +69,6 @@ export class BeschlussFolieFormComponent implements OnInit {
       }
     };
 
-    // POST-Beschlussfolie
-    /*this.http.post('http://localhost:8080/beschlussfolien/add', this.newdata)
-      .subscribe({
-        next: value => {
-          console.log(value);
-          this.snackBar.open(`Beschlussfolie wurde gespeichert`, undefined, {
-            duration: 3000,
-            panelClass: 'snackbar-dark'
-          });
-        }, error: err => {
-          this.snackBar.open(`Daten konnten nicht geladen werden ${err.message}`, undefined, {
-            duration: 3000,
-            panelClass: 'snackbar-dark'
-          });
-        }
-      });*/
-
     this.openSummary();
     this.closeDialog();
   }
@@ -97,7 +80,7 @@ export class BeschlussFolieFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 

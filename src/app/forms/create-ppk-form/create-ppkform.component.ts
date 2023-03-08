@@ -33,19 +33,23 @@ export class CreatePPKFormComponent implements OnInit {
   todayDate=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   projektAnzahl: any;
 
-  ngOnInit(): void {
-    if(!this.data.isloggedIn){
-      this.router.navigate(['**']);
-    }
+  ngOnInit() {
+    console.log("hi")
+    //if(!this.data.isloggedIn){
+     // this.router.navigate(['**']);
+    //}
+
     this.projects = this.service.getProjects().subscribe({
         next: value => {
-          console.log(value)
+         console.log(value)
           this.projects = value
-        }, error: err => {}
+        }, error: err => {
+        console.log("Fehler")
+      }
     });
     this.projektAnzahl = this.service.getAnzahlProjekt().subscribe({
       next: (value: any) => {
-        console.log(value)
+         console.log(value)
         this.projektAnzahl = value
       }, error: (err: { message: any; }) => {}
     });
@@ -58,10 +62,10 @@ export class CreatePPKFormComponent implements OnInit {
     this.http.post<Ppk>('http://localhost:8080/ppk/add', this.ppk)
       .subscribe({
         next: (value: any) => {
-          console.log(value)
+         // console.log(value)
           this.ppk_id = value.ppk_id
           this.ppk_date = value.datum
-          console.log(this.ppk_id, "ppk")
+         //  console.log(this.ppk_id, "ppk")
           this.setProjects();
           this.snackBar.open(`PPK wurde hinzugefügt`, undefined, {
             duration: 3000,
@@ -80,7 +84,7 @@ export class CreatePPKFormComponent implements OnInit {
 
   setProjects() {
     for (var i = 0; i < this.auswahl.length; i++) {
-      console.log(this.auswahl[i])
+      // console.log(this.auswahl[i])
 
       var ppkProjekte = {
         ppk_projekte_id: {
@@ -97,7 +101,7 @@ export class CreatePPKFormComponent implements OnInit {
       this.http.post('http://localhost:8080/ppk_projekte/add', ppkProjekte)
         .subscribe({
           next: value => {
-            console.log(value)
+          //  console.log(value)
           }, error: err => {
             this.snackBar.open(`Daten konnten nicht gespeichert werden ${err.message}`, undefined, {
               duration: 3000,
@@ -112,15 +116,15 @@ export class CreatePPKFormComponent implements OnInit {
     for (let i = 0; i <= this.projektAnzahl; i++) {
       const checkbox = document.getElementById("checkbox" + i,) as HTMLInputElement | null;
       if (checkbox?.checked) {
-        console.log('Checkbox is checked');
+       // console.log('Checkbox is checked');
         this.auswahl.push(checkbox.value);
-        console.log(checkbox.value)
+       // console.log(checkbox.value)
       } else {
-        console.log('Checkbox is NOT checked');
+        // console.log('Checkbox is NOT checked');
       }
-      console.log(checkbox?.checked);
+      // console.log(checkbox?.checked);
     }
-    console.log(this.auswahl)
+    // console.log(this.auswahl)
   }
 
   openDialog() {
@@ -130,7 +134,7 @@ export class CreatePPKFormComponent implements OnInit {
         data: this.ppk_id,
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
+        // console.log('The dialog was closed');
       });
     }
   }
@@ -141,10 +145,9 @@ export class CreatePPKFormComponent implements OnInit {
       data: this.ppk_date,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
-
   toDisableGast() {
     this.disable = false
   }

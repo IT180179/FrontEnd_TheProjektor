@@ -31,13 +31,14 @@ export class GaesteListComponent implements OnInit {
     }
     this.gaeste_list = this.service.getGaestePerPPK().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.gaeste_list = value
       }, error: err => {}
     });
   }
 
   newGast(value: string) {
+    this.ngOnInit();
     if (value != null) {
       var gast = {
         ppk_id: {
@@ -48,7 +49,7 @@ export class GaesteListComponent implements OnInit {
       this.http.post('http://localhost:8080/gaeste/add', gast)
         .subscribe({
           next: value => {
-            console.log(value)
+            // console.log(value)
             this.snackBar.open(`Gast wurde gespeichert!`, undefined, {
               duration: 3000,
               panelClass: 'snackbar-dark'
@@ -61,6 +62,7 @@ export class GaesteListComponent implements OnInit {
           }
         });
     }
+    this.ngOnInit();
   }
   onNoClick(): void {
     this.dialogRef.close();

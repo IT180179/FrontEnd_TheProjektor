@@ -36,13 +36,13 @@ export class CreateEmployeeFormComponent implements OnInit {
     }
     this.employees = this.service.getEmployees().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.employees = value
       }, error: err => {}
     });
     this.roles = this.service.getRoles().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.roles = value
       }, error: err => {}
     });
@@ -60,7 +60,7 @@ export class CreateEmployeeFormComponent implements OnInit {
     this.http.post<Person>('http://localhost:8080/personen/add', this.newdata)
       .subscribe({
         next: value => {
-          console.log(value)
+          // console.log(value)
         }, error: err => {
           this.snackBar.open(`Daten konnten nicht gespeichert werden ${err.message}`, undefined, {
             duration: 3000,
@@ -76,7 +76,7 @@ export class CreateEmployeeFormComponent implements OnInit {
       height: '250px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this._router.navigate(['/add-employee']);
     });
   }

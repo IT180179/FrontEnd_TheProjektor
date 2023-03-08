@@ -54,19 +54,19 @@ export class PPKPresentationFormComponent implements OnInit {
     }
     this.employees = this.service.getEmployees().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.employees = value
       }, error: err => {}
       });
     this.roles = this.service.getRoles().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.roles = value
       }, error: err => {}
       });
     this.projects = this.service.getProjects().subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projects = value
       }, error: err => {}
       });
@@ -80,16 +80,16 @@ export class PPKPresentationFormComponent implements OnInit {
       ) as HTMLInputElement | null;
 
       if (checkbox?.checked) {
-        console.log('Checkbox is checked');
+        // console.log('Checkbox is checked');
         this.auswahl.push(checkbox.value);
-        console.log(checkbox.value)
+        // console.log(checkbox.value)
 
       } else {
-        console.log('Checkbox is NOT checked');
+        //  console.log('Checkbox is NOT checked');
       }
-      console.log(checkbox?.checked);
+      // console.log(checkbox?.checked);
     }
-    console.log(this.auswahl)
+    // console.log(this.auswahl)
   }
   onSubmit(data: any) {
     this.getProjektInfo();
@@ -97,13 +97,13 @@ export class PPKPresentationFormComponent implements OnInit {
   getProjektInfo(){
     this.projekt = this.service.getProjectByIdNr(this.selected).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projekt = value
       }, error: err => {}});
   }
 
   disableButtons(folien: any) {
-    console.log("in there")
+    // console.log("in there")
 
     if(folien == 5){
       this.disbale5 = false
@@ -117,7 +117,7 @@ export class PPKPresentationFormComponent implements OnInit {
   }
 
   setProjektID() {
-    console.log(this.selected + "Projekt")
+    // console.log(this.selected + "Projekt")
     this.dataService.projekt_id(this.selected)
     this.disbale5 = false;
     this.disbale6 = false;
@@ -131,10 +131,10 @@ export class PPKPresentationFormComponent implements OnInit {
       data: this.selected,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.x = document.getElementById("button5");
-      console.log(result.data.titel);
-      console.log(result.data.freitext)
+      // console.log(result.data.titel);
+      // console.log(result.data.freitext)
       if(result.data.titel != null && result.data.freitext != null){
         this.x.innerText = "✓"
         this.disbale5 = true;
@@ -149,7 +149,7 @@ export class PPKPresentationFormComponent implements OnInit {
       data: this.selected,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.x = document.getElementById("button6");
       if(result.data.freitext != null && result.data.titel != null && result.data.beschreibung != null){
         this.x.innerText = "✓"
@@ -165,7 +165,7 @@ export class PPKPresentationFormComponent implements OnInit {
       data: this.selected,
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.x = document.getElementById("button2");
       if(result.data.status != null && result.data.beschreibung != null){
         this.x.innerText = "✓"
@@ -180,18 +180,18 @@ export class PPKPresentationFormComponent implements OnInit {
       data: this.dataService.projekt_id
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
   postData(){
-    console.log(this.freiData)
-    console.log(this.beschlussData)
-    console.log(this.requestData)
+    // console.log(this.freiData)
+    // console.log(this.beschlussData)
+    // console.log(this.requestData)
 
    this.service.http.post('http://localhost:8080/freiefolien/add', this.freiData)
       .subscribe({
         next: value => {
-          console.log(value)
+          // console.log(value)
         }, error: err => {
           this.snackBar.open(`Projekt hinzufügen ist fehlgeschlagen: ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
         }
@@ -200,8 +200,8 @@ export class PPKPresentationFormComponent implements OnInit {
     this.service.http.post('http://localhost:8080/beschlussfolien/add', this.beschlussData)
       .subscribe({
         next: value => {
-          console.log(value)
-          console.log("Beschlussfolie hinzugefügt!")
+          // console.log(value)
+          //  console.log("Beschlussfolie hinzugefügt!")
         }, error: err => {
           this.snackBar.open(`Projekt hinzufügen ist fehlgeschlagen: ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
         }
@@ -211,8 +211,8 @@ export class PPKPresentationFormComponent implements OnInit {
       this.requestData.auswahl[5] + "/" + this.requestData.auswahl[6] + "/" +  this.requestData.auswahl[7], this.requestData)
       .subscribe({
         next: value => {
-          console.log(value)
-          console.log("Softwareanfoderungsfolie hinzugefügt!")
+          // console.log(value)
+          // console.log("Softwareanfoderungsfolie hinzugefügt!")
         }, error: err => {
           this.snackBar.open(`Projekt hinzufügen ist fehlgeschlagen: ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
         }

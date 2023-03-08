@@ -58,7 +58,7 @@ export class AddMilestoneFormComponent implements OnInit {
       .subscribe({
         next: value => {
           this.snackBar.open(`Meilenstein wurde hinzugefügt`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
-          console.log(value)
+          // console.log(value)
         }, error: err => {
           this.snackBar.open(`Daten konnten nicht hinzugefügt werden ${err.message}`, undefined, {duration: 3000, panelClass: 'snackbar-dark'});
         }
@@ -72,7 +72,7 @@ export class AddMilestoneFormComponent implements OnInit {
       height: '250px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this._router.navigate(['/milestone_list']);
     });
   }

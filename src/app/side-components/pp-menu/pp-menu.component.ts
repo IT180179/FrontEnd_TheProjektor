@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-pp-menu',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class PPMenuComponent implements OnInit {
 
-  constructor(public data: DataService, public router: Router) {
+  constructor(public data: DataService, public router: Router,private http: HttpService) {
   }
   rechte: any;
   isLoggedIn: any;
@@ -28,5 +29,15 @@ export class PPMenuComponent implements OnInit {
     }
 
 
+  }
+  getPresentation(){
+    console.log("PPK-Präsentation wird generiert")
+    //this.http.getPPKPowerpoint().subscribe(
+    //       {
+    //         next: value => {
+    //           //  console.log(value)
+    //           this.ppkInfos = value
+    //         }, error: err => {}
+    //         });
   }
 }

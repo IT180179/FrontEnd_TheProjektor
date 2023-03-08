@@ -22,7 +22,7 @@ export class EmployeeListComponent implements OnInit {
     this.employees = this.service.getEmployeesAndRessources()
       .subscribe({
         next: value => {
-          console.log(value)
+          //   console.log(value)
           this.employees = value
         }, error: err => {}
       });

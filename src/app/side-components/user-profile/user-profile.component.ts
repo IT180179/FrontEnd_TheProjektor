@@ -30,27 +30,27 @@ export class UserProfileComponent implements OnInit {
 
     this.employees = this.service.getEmployeeById(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.employees = value
       }, error: err => {}
     });
 
     this.fachkoordinator = this.service.countFachkoordinator(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.fachkoordinator = value
       }, error: err => {}
     });
 
     this.project = this.service.countProjects(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        //  console.log(value)
         this.project = value
       }, error: err => {}
     });
     this.projectmanager = this.service.countProjectmanager(this.user_id).subscribe({
       next: value => {
-        console.log(value)
+        // console.log(value)
         this.projectmanager = value
       }, error: err => {}
     });
